@@ -183,19 +183,26 @@ $dd = rand(1000, 9999);
 $ee = rand(1000, 9999);
 $ff = rand(1000, 9999);
 
-sort($aa,$bb,$cc,$dd,$ee,$ff);
+$max1= $aa>$bb?  $aa : $bb;
+$max1= $max1>$cc? $max1 : $cc;
+$max1= $max1>$dd? $max1 : $dd;
+$max1= $max1>$ee? $max1 : $ee;
+$max1= $max1>$ff? $max1 : $ff;
+
+
+
+
+
+
 
 // Find the maximum value 
 $max1 = max($aa, $bb, $cc, $dd, $ee, $ff);
 $max6= min($aa, $bb, $cc, $dd, $ee, $ff);
 
-$max2 = ($aa + $bb + $cc + $dd + $ee + $ff) - $max1 - $max6;
-$max3 = ($aa + $bb + $cc + $dd + $ee + $ff) - $max1 - $max2 - $max6;
-$max4 = ($aa + $bb + $cc + $dd + $ee + $ff) - $max1 - $max2 - $max3 - $max6;
-$max5 = ($aa + $bb + $cc + $dd + $ee + $ff) - $max1 - $max2 - $max3 - $max4 - $max6;
+
+
 echo "Unorted numbers: $aa, $bb, $cc, $dd, $ee, $ff <br/><br/>
 Sorted numbers: $max1, $max2, $max3, $max4, $max5, $max6 <br/>";
-echo "Unorted numbers: $aa, $bb, $cc, $dd, $ee, $ff <br/><br/>
-Sorted numbers: $max1, $max2, $max3, $max4, $max5, $max6 <br/>";
+
 
 ?>
