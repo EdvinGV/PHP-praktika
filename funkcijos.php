@@ -75,7 +75,7 @@ rusiavimas();
 
 
 echo"<br> ";
-echo '_____________U6____________<br><br><br><br>';
+echo '_____________U6____________<br><br><br><br>';d
 $m=[];
 $x=0;
 function rus2(){
@@ -105,14 +105,14 @@ echo '_____________U7____________<br><br><br><br>';
 function infinity(){ 
 
 $x=[];
-$ar=[];
+$z=rand(10,30);
 $y=rand(10,20);
 for($i=0; $i<$y; $i++){
     if($y-$i==1){
         for($i=0; $i<$y; $i++){
-            $ar[]=rand(0,10);
+            $x[]=infinity();
         }
-        $x[]=$ar;
+       
     }else{
         $x[]=rand(0,10);
     }
