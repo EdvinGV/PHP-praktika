@@ -75,7 +75,7 @@ rusiavimas();
 
 
 echo"<br> ";
-echo '_____________U6____________<br><br><br><br>';d
+echo '_____________U6____________<br><br><br><br>';
 $m=[];
 $x=0;
 function rus2(){

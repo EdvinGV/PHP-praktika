@@ -1,0 +1,385 @@
+body{
+    background-color: #FBC70F;
+    background-image: url(../img/back\ honey.png);
+    background-repeat: no-repeat;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow: hidden;
+   
+}
+body *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+header{
+    width: 1500px;
+    margin-left: calc(50% - 750px);
+    padding:0;
+    margin-bottom: 80px;
+    
+
+   
+}
+main{
+    width: 1500px;
+    margin-left: calc(50% - 750px);
+    padding:0;
+    
+} 
+main.center {
+   
+    margin-left: 0;
+   
+    
+} 
+.foot{
+  
+    
+    position: absolute;
+ bottom: 0;
+ right: 0;
+ width: 120px;
+
+   }
+.circles{
+    position: absolute;
+    
+    bottom: 0;
+    width: auto;
+    height: max-content;
+    width: 100px;
+}
+.row{
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+ position: relative;
+}
+.arrow{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+    .arrimg{
+       
+        animation-name: arr ;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+      transform: rotate(90deg);
+    }
+
+   
+.title{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 3px;
+   
+    background-color: #c8a526;
+}
+.left-block{
+width: 400px;
+background-color: #7E4C02;
+
+
+
+}
+.right-block{
+
+    width: 100%;
+    background-color: #E9CB64;
+
+}
+.meniukas{
+    flex-direction: column;
+   
+}
+body .itemas{
+    margin-top: 100px;
+}
+body .item{
+    margin-bottom: 60px;
+    text-align: center;
+    width: 400px;
+    height: 50px;
+    line-height: 50px;
+
+}
+
+.logo{
+   margin: 0;
+   padding: 0;
+   width: 500px;
+   transition: 6s;
+   animation-duration: 6s;
+   animation-name: yee;
+animation-iteration-count: infinite;
+
+}
+@keyframes yee {
+    0%{
+       
+        transform:translateX(0);
+     }
+     25%{
+        scale: 1;
+       
+     } 30%{
+        scale: 1.1;
+       
+     }35%{
+        scale: 1;
+       
+     }
+     40%{
+        scale: 1;
+       
+     }
+     45%{
+        scale: 1.1;
+       
+     }
+     50%{
+        scale: 1;
+       
+     }
+  
+   
+     100%{
+        
+        transform:translateX(0);
+     }
+}
+.inputs{
+    margin-top: 20px ;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.input{
+    border: none;
+    background-color: #E9CB64;
+    height: 40px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+input{
+    font-size: 20px;
+   padding-left: 10px;
+   font-weight: 600;
+}
+.input::placeholder{
+    color: rgb(115, 88, 4);
+    font-size: 15px;
+}
+.info{
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.btn{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-top: 20px;
+    width: 100%;
+    height: 50px;
+    right: 0;
+    background-color: #f98c8c;
+    border: 1px solid #7E4C02; ;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 3px;
+    font-weight:600;
+    transition: 0.1s;
+}
+
+.btn:hover{
+    letter-spacing: 6px;
+   font-size: 22px;
+font-weight: bold;
+background-color: rgb(183, 240, 125);
+}
+
+
+
+.table {
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    align-items: center;
+    letter-spacing: 2px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.tablerow{
+    background-color: #7E4C02;
+color: white;
+    font-size: 15px;
+   height: 30px;
+   letter-spacing: 2px;
+   font-weight: bold;
+   padding-right: 5px;
+   padding-left: 5px;
+}
+.option{
+    width: 100%;
+    height: 30px;
+    background-color: #7E4C02;
+    border: 1px solid #000000;
+    letter-spacing: 2px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    transition: 0.2s;
+    font-family:Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+.option:hover{
+    color: black;
+    letter-spacing: 7px;
+    background-color: #E9CB64;
+    border: 2px solid  black;
+   font-weight: bolder;
+}
+.options *{
+    background-color: #6a4002;
+}
+
+
+.menu{
+ 
+    width: 60px;
+    height: 60px;
+    background-color: #96d91a00;
+    
+    padding: 5px;
+    border-radius: 50%;
+    transition-duration: 2s;
+    cursor: pointer;
+    animation-name: border;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+
+}
+.useradd{
+    width: 60px;
+    height: 60px;
+    background-color: #96d91a00;
+   margin-bottom: 15px;
+    padding: 5px;
+    margin-right: 10px;
+    border: 6px solid rgb(228, 122, 0);
+    border-radius: 50%;
+   transition: 2s;
+    cursor: pointer;
+    animation-name: border;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+.menu1{
+ 
+    background-color: #96d91a00;
+    transition-duration: 2s;
+    cursor: pointer;
+
+}
+.useradd1{
+ 
+    background-color: #96d91a00;
+   transition: 2s;
+    cursor: pointer;
+}
+.list1{
+ 
+    background-color: #96d91a00;
+   transition: 2s;
+    cursor: pointer;
+}
+.list{
+ 
+    width: 60px;
+    height: 60px;
+    background-color: #96d91a00;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 50%;
+    transition-duration: 2s;
+    cursor: pointer;
+    animation-name: border;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+
+}
+.exit{
+ 
+    width: 60px;
+    height: 60px;
+    background-color: #96d91a00;
+   
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 50%;
+    transition-duration: 2s;
+    cursor: pointer;
+    animation-name: border;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+
+}
+.exit1{
+ 
+    background-color: #96d91a00;
+   transition: 2s;
+    cursor: pointer;
+}
+@keyframes border{
+0%{
+    border: 6px solid rgb(228, 122, 0);
+}
+25%{
+    border: 6px solid rgb(157, 73, 0);
+}
+50%{
+    border: 6px solid rgb(139, 0, 0);
+}
+75%{
+    border: 6px solid rgb(117, 152, 0);
+}
+100%{
+    border: 6px solid rgb(228, 122, 0);
+}
+}
+
+
+.meniu{
+
+
+    display: flex;
+    width: 280px;
+    position: fixed;
+  right: 0;
+  top: 20px;
+  z-index: 9999;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+}
