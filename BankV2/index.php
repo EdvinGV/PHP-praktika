@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-// if (isset($_SESSION['name']) && !isset($_GET['logout'])) {
-//   header('Location: http://localhost/egprojektas/BankV2/index.php?');
-//   die;
-// }
+if (isset($_SESSION['name']) && !isset($_GET['logout'])) {
+  header('Location: http://localhost/egprojektas/BankV2/menu.php?');
+  die;
+}
 
 
 

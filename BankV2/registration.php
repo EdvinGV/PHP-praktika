@@ -6,24 +6,85 @@ if (!isset($_SESSION['name'])) {
 }
 
 // Check if the form is submitted
+
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   
+ 
+  
+  
+  //tikrinimas ar nera atitikmenu
   $accounts = file_get_contents(__DIR__ . '/accounts.json');
   $accounts = json_decode($accounts, true);
 
   foreach ($accounts as $acc) {
     if ($acc['regid'] == $_POST['regid']) {
-      $_SESSION['regerror'] = 'There is an existing account with the ID provided';
+      $_SESSION['regerror'] = '<span style="color: crimson; ">There is an existing account with the ID provided </span>';
       header('Location: http://localhost/egprojektas/BankV2/registration.php?');
       die;
     }
   }
 
+
+
+
+  //tikrinimas ar kodas atitinka reikalavimus
+
+  $checkname=$_POST['regname'];
+  $checksurname=$_POST['regsurname'];
+  if(strlen($checkname)< 3 || strlen($checksurname)< 3){
+    $_SESSION['regerror'] = '<span style="color: crimson; font-size: 16px"> Not all details were provided according to requirments. (Minimum input length 3 characters)</span>';
+    header("Location:http://localhost/egprojektas/BankV2/registration.php?");
+    die;
+  }
+  function validateAsmensKodas()
+  {
+    $asmensKodas=$_POST['regid'];
+    if ($asmensKodas == null ) {
+      $_SESSION['regerror'] = '<span style="color: crimson; ">ID is not valid</span>';
+      header("Location:http://localhost/egprojektas/BankV2/registration.php?");
+      die;
+    } else if (!preg_match('/^\d{11}$/', $asmensKodas)) {
+      $_SESSION['regerror'] = '<span style="color: crimson; ">ID is not valid</span>';
+      header("Location:http://localhost/egprojektas/BankV2/registration.php?");
+      die;
+    }
+    $skaitmenys = str_split($asmensKodas);
+    $kontrolinisSkaitmuo = (int)$skaitmenys[10];
+
+    $skaiciai = array_map('intval', str_split($asmensKodas, 1));
+
+    $svarba = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1];
+    $suma = 0;
+
+    for ($i = 0; $i < 10; $i++) {
+      $suma += $svarba[$i] * $skaiciai[$i];
+    }
+
+    $liekana = $suma % 11;
+
+    if ($liekana === 10) {
+      $liekana = 0;
+    }
+
+    if ($liekana !== $kontrolinisSkaitmuo) {
+      $_SESSION['regerror'] = 'ID is not valid';
+      header("Location:http://localhost/egprojektas/BankV2/registration.php?");
+      die;
+    }
+
+    return true;
+  }
+  validateAsmensKodas();
+  
   // Create a new account object
   $newAccount = [
     "regname" => $_POST['regname'],
     "regsurname" => $_POST['regsurname'],
-    "regid" => $_POST['regid']
+    "regaccno" => rand(100000000, 999999999),
+    "regid" => $_POST['regid'],
+    "regbalance" => 0
   ];
 
   // Add the new account to the accounts array
@@ -34,11 +95,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   // Write the updated JSON back to the file
   file_put_contents(__DIR__ . '/accounts.json', $updatedAccountsJson);
-  
+
   $_SESSION['regerror'] = 'Registration Succeeded';
-  
+
   header('Location:http://localhost/egprojektas/BankV2/registration.php');
-  
+
   die;
 }
 if (isset($_SESSION['regerror'])) {
@@ -75,7 +136,7 @@ if (isset($_SESSION['regerror'])) {
           <label class="info" for="">Surname </label> <input class="input" type="text" placeholder=" Bimberbovas" name='regsurname'>
           <label class="info" for="">ID Number </label> <input class="input" type="text" placeholder=" 49904120437 (An Example)" name='regid'>
           <button class="btn" type="submit"> Confirm Details </button>
-         <h2> <?=$msg?></h2>
+          <h2> <?= $msg ?></h2>
         </form>
       </div>
       <?php require __DIR__ . '/quickmeniu.php' ?>
