@@ -1,5 +1,9 @@
 <?php
-
+session_start();
+if(!isset($_SESSION['name'])){
+  header('Location: http://localhost/egprojektas/BankV2/index.php?');
+  die;
+}
 ?>
 
 
@@ -12,6 +16,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VELNIO KODAI</title>
   <link rel="stylesheet" href="./bank.scss">
+
 
 </head>
 
@@ -36,25 +41,7 @@
 
 
     <div class="right-block ">
-    <div class="meniu">
-
-<div class="useradd">
-  <a href="http://localhost/egprojektas/BankV2/registration.php?"><img class="useradd1" src="./user-plus-solid.svg" alt=""></a>
-</div>
-<div class="menu">
-  <a href="http://localhost/egprojektas/BankV2/menu.php?">
-  <img class="menu1" src="./house-solid.svg" alt=""></a>
-</div>
-<div class="list">
-  <a href="http://localhost/egprojektas/BankV2/list.php?">
-  <img class="list1" src="./list-solid.svg" alt=""></a>
-</div>
-<div class="exit">
-  <a href="http://localhost/egprojektas/BankV2/login.php?">
-  <img class="exit1" src="./arrow-right-from-bracket-solid.svg" alt=""></a>
-</div>
-
-        </div>
+    <?php require __DIR__ . '/quickmeniu.php' ?>
 
 
 

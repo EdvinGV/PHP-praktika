@@ -1,5 +1,9 @@
 <?php
-
+session_start();
+if(!isset($_SESSION['name'])){
+  header('Location: http://localhost/egprojektas/BankV2/index.php?');
+  die;
+}
 ?>
 
 
@@ -14,8 +18,10 @@
   <link rel="stylesheet" href="./bank.scss">
 </head>
 
-<body class="center">
-
+<body>
+  <header>
+    <img class="logo" src="../img/logo-no-frame.png" alt="">
+  </header>
   <main class="center">
     <div class="left-block ">
       <div class="title">New Account Details</div>
@@ -26,26 +32,8 @@
           <label class="info" for="">ID Number </label> <input class="input" type="text" placeholder=" 49904120437 (An Example)">
           <button class="btn" type="submit"> Confirm Details </button>
         </form>
-        <div class="meniu">
-
-<div class="useradd">
-  <a href="http://localhost/egprojektas/BankV2/registration.php?"><img class="useradd1" src="./user-plus-solid.svg" alt=""></a>
-</div>
-<div class="menu">
-  <a href="http://localhost/egprojektas/BankV2/menu.php?">
-  <img class="menu1" src="./house-solid.svg" alt=""></a>
-</div>
-<div class="list">
-  <a href="http://localhost/egprojektas/BankV2/list.php?">
-  <img class="list1" src="./list-solid.svg" alt=""></a>
-</div>
-<div class="exit">
-  <a href="http://localhost/egprojektas/BankV2/login.php?">
-  <img class="exit1" src="./arrow-right-from-bracket-solid.svg" alt=""></a>
-</div>
-
-
-        </div>
+      </div>
+      <?php require __DIR__ . '/quickmeniu.php' ?>
   </main>
 
 </body>

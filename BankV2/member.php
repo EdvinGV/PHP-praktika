@@ -1,5 +1,11 @@
 <?php
+session_start();
 
+
+if(!isset($_SESSION['name'])){
+  header('Location: http://localhost/egprojektas/BankV2/index.php?');
+  die;
+}
 ?>
 
 
@@ -12,12 +18,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VELNIO KODAI</title>
   <link rel="stylesheet" href="./bank.scss">
+
 </head>
 
 <body>    
 
     <main>
-        
+    <?php require __DIR__ . '/quickmeniu.php' ?>
     </main>
 
 </body>
