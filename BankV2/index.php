@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-if (isset($_SESSION['name']) && !isset($_GET['logout'])) {
-  header('Location: http://localhost/egprojektas/BankV2/index.php?');
-  die;
-}
+// if (isset($_SESSION['name']) && !isset($_GET['logout'])) {
+//   header('Location: http://localhost/egprojektas/BankV2/index.php?');
+//   die;
+// }
 
 
 
@@ -57,7 +57,7 @@ if (isset($_SESSION['logout'])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VELNIO KODAI</title>
-  <link rel="stylesheet" href="./bank.scss">
+  <link rel="stylesheet" href="./bank.css">
 
 </head>
 
