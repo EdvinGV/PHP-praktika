@@ -7,6 +7,11 @@ if(!isset($_SESSION['name'])){
 
 $accounts = file_get_contents(__DIR__ . '/accounts.json');
 $accounts = json_decode($accounts, true);
+usort($accounts, function ($a, $b){
+  return strcmp($a['regsurname'],$b['regsurname']);
+
+});
+
 
 ?>
 
@@ -55,7 +60,7 @@ $accounts = json_decode($accounts, true);
 
       <table bgcolor="black" width="100%">
         <tr bgcolor=" #E9CB64" class="table" align="center">
-          <th width="100" class="name"> Name </th>
+          <th width="100" class="name">   Name  </th>
           <th width="100" class="surname"> Surname </th>
           <th width="100" class="accno">Account No. </th>
           <th width="100" class="idno"> ID No. </th>
@@ -76,9 +81,10 @@ $accounts = json_decode($accounts, true);
           <td width="100" class="idno"><?=$acc['regid'] ?>  </td>
           <td width="100" class="balance"><?=$acc['regbalance'].' €' ?>  </td>
           <td width="200" class="options"> 
-            <form action="http://localhost/egprojektas/BankV2/delete.php?regaccno=<?= $acc['regaccno'] ?>" method="post" ><button class="option" type="submit">Delete</button></form>
-            <button class="option"> Add</button>
-            <button class="option">Subtract </button></td>
+            <form action="http://localhost/egprojektas/BankV2/delete.php?regaccno=<?=$acc['regaccno'] ?>" method="post" ><button class="option" type="submit">Delete</button></form>
+              <a  href="http://localhost/egprojektas/BankV2/edit+.php?regaccno=<?=$acc['regaccno'] ?>"><button class="option"> Add</button></a>
+              <a  href="http://localhost/egprojektas/BankV2/edit-.php?regaccno=<?=$acc['regaccno'] ?>"><button class="option"> Subtract</button></a>
+           
           </tr>
       
         <?php endforeach ?>

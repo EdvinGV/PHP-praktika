@@ -8,9 +8,18 @@ if (!isset($_SESSION['name'])) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $accounts = file_get_contents(__DIR__ . '/accounts.json');
   $accounts = json_decode($accounts, true);
-
   $id = (int)$_GET['regaccno'];
-
+// issitraukiam nari kad patikrinti ar yra pinigu
+  $account = array_filter($accounts, fn ($c) => $id == $c['regaccno']);
+  $account = array_shift($account);
+print_r($account);
+  if($account['regbalance']!=0){
+    $_SESSION['deletemsg'] = '<span style="color: crimson; "> Account is NOT empty, can not delete it</span>';
+    header('Location: http://localhost/egprojektas/BankV2/delete.php');
+            die;
+}
+  
+//trinimas per filtra
   $accounts = array_filter($accounts, fn($c) => $id != $c['regaccno']);
 
   // Check if the account was found and deleted
@@ -36,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 $deletemsg = $_SESSION['deletemsg'];
 unset($_SESSION['deletemsg']);
-$deletemsg= 'Account Deleted Successfully';
+
 ?>
 
 

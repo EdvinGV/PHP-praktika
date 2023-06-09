@@ -6,7 +6,7 @@ body{
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    overflow: hidden;
+    padding-bottom: 30px;
    
 }
 body *{
@@ -282,7 +282,7 @@ color: white;
     transition-duration: 2s;
     cursor: pointer;
     animation-name: border;
-    animation-duration: 5s;
+    animation-duration: 3s;
     animation-iteration-count: infinite;
 
 }
@@ -298,7 +298,7 @@ color: white;
    transition: 2s;
     cursor: pointer;
     animation-name: border;
-    animation-duration: 5s;
+    animation-duration: 3s;
     animation-iteration-count: infinite;
 }
 .menu1{
@@ -332,7 +332,7 @@ color: white;
     transition-duration: 2s;
     cursor: pointer;
     animation-name: border;
-    animation-duration: 5s;
+    animation-duration: 3s;
     animation-iteration-count: infinite;
 
 }
@@ -348,7 +348,7 @@ color: white;
     transition-duration: 2s;
     cursor: pointer;
     animation-name: border;
-    animation-duration: 5s;
+    animation-duration: 3s;
     animation-iteration-count: infinite;
 
 }
@@ -406,4 +406,8 @@ color: white;
 .center1{
   margin-top: 150px;
   padding-top: 15px;
+}
+body main .bold *{
+    font-weight: bold;
+    color: white;
 }

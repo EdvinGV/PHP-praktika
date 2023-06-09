@@ -11,7 +11,6 @@ if (!isset($_SESSION['name'])) {
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   
- 
   
   
   //tikrinimas ar nera atitikmenu
@@ -27,12 +26,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 
 
-
-
-  //tikrinimas ar kodas atitinka reikalavimus
-
   $checkname=$_POST['regname'];
+  $checkname= ucfirst($checkname);
   $checksurname=$_POST['regsurname'];
+  $checksurname= ucfirst($checksurname);
+
+
+  if (preg_match('/\P{L}+/u', $checkname) || preg_match('/\P{L}+/u', $checksurname)) {
+    $_SESSION['regerror'] = 'Name and Surname can only contain letters';
+    header("Location:http://localhost/egprojektas/BankV2/registration.php?");
+    die;
+  }
+  
+
+  if (is_numeric($checkname) || is_numeric($checksurname)){
+    $_SESSION['regerror'] = 'Name and Surname can not contain numbers';
+    header("Location:http://localhost/egprojektas/BankV2/registration.php?");
+    die;
+  }
+//tikrinimas ar kodas atitinka reikalavimus
   if(strlen($checkname)< 3 || strlen($checksurname)< 3){
     $_SESSION['regerror'] = '<span style="color: crimson; font-size: 16px"> Not all details were provided according to requirments. (Minimum input length 3 characters)</span>';
     header("Location:http://localhost/egprojektas/BankV2/registration.php?");
@@ -79,6 +91,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   validateAsmensKodas();
   
   // Create a new account object
+///lower case and capitalize
+  $_POST['regname']=strtolower($_POST['regname']);
+  $_POST['regname']=ucfirst($_POST['regname']);
+  $_POST['regsurname']=strtolower($_POST['regsurname']) ;
+  $_POST['regsurname']=ucfirst($_POST['regsurname']) ;
   $newAccount = [
     "regname" => $_POST['regname'],
     "regsurname" => $_POST['regsurname'],
@@ -131,7 +148,7 @@ if (isset($_SESSION['regerror'])) {
     <div class="left-block ">
       <div class="title">New Account Details</div>
       <div class="inputs">
-        <form action="" method="post">
+        <form action="./registration.php" method="post">
           <label class="info" for="">Name </label> <input class="input" type="text" placeholder=" Antanas" name='regname'>
           <label class="info" for="">Surname </label> <input class="input" type="text" placeholder=" Bimberbovas" name='regsurname'>
           <label class="info" for="">ID Number </label> <input class="input" type="text" placeholder=" 49904120437 (An Example)" name='regid'>
