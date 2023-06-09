@@ -1,58 +1,9 @@
-{
-    "2": {
-        "regname": "Dede",
-        "regsurname": "Harasimas",
-        "regaccno": 655730503,
-        "regid": "35510169532",
-        "regbalance": 48.999944
-    },
-    "4": {
-        "regname": "dede",
-        "regsurname": "ZZZzzz",
-        "regaccno": 793800366,
-        "regid": "32812289064",
-        "regbalance": 1.19999
-    },
-    "5": {
-        "regname": "51515",
-        "regsurname": "1515",
-        "regaccno": 815709431,
-        "regid": "45206179731",
-        "regbalance": 87.607209
-    },
-    "6": {
-        "regname": "sdfsdf",
-        "regsurname": "5151515",
-        "regaccno": 687147674,
-        "regid": "39803100447",
-        "regbalance": 48.476465
-    },
-    "7": {
-        "regname": "edvinsdfsd",
-        "regsurname": "Edsgsdg",
-        "regaccno": 173332258,
-        "regid": "44304308743",
-        "regbalance": 37.269999999999996
-    },
-    "8": {
-        "regname": "Dede",
-        "regsurname": ".amakrenas",
-        "regaccno": 990103635,
-        "regid": "61302109246",
-        "regbalance": -164.10046
-    },
-    "9": {
-        "regname": "Edvin",
-        "regsurname": "Asfasf",
-        "regaccno": 700623126,
-        "regid": "61209218119",
-        "regbalance": 50.666
-    },
-    "10": {
-        "regname": "Asdasda",
-        "regsurname": "Sdasdsad",
-        "regaccno": 592992893,
-        "regid": "35203238141",
-        "regbalance": 0.3888900000000002
+[
+    {
+        "regname": "Petras",
+        "regsurname": "Tuctuc",
+        "regaccno": 294450247,
+        "regid": "47410128956",
+        "regbalance": 50
     }
-}
+]
