@@ -1,9 +1,30 @@
-[
-    {
-        "regname": "Petras",
-        "regsurname": "Tuctuc",
-        "regaccno": 294450247,
-        "regid": "47410128956",
-        "regbalance": 50
+{
+    "1": {
+        "regname": "Abromas",
+        "regsurname": "Adomaitiene",
+        "regaccno": 174501863,
+        "regid": "40910248868",
+        "regbalance": 234.04000000000002
+    },
+    "2": {
+        "regname": "Ibrahim",
+        "regsurname": "Zetkov",
+        "regaccno": 283082743,
+        "regid": "34203288707",
+        "regbalance": 325
+    },
+    "3": {
+        "regname": "Kefyras",
+        "regsurname": "Bulvinis",
+        "regaccno": 423126955,
+        "regid": "48909129444",
+        "regbalance": 123476
+    },
+    "5": {
+        "regname": "Dede",
+        "regsurname": "Zebriukas",
+        "regaccno": 493070866,
+        "regid": "48404138197",
+        "regbalance": 1000
     }
-]
+}

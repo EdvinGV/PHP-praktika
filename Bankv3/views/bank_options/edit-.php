@@ -1,9 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION['name'])) {
-    header('Location: http://localhost/egprojektas/BankV2/index.php?');
-    die;
-}
+
 
 // ateinam per get ir isgaunam duomenys per query
 $accounts = file_get_contents(__DIR__ . '/accounts.json');
