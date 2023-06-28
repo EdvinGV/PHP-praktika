@@ -11,10 +11,13 @@ class AccountsController
     public function index()
     {
         $data = new FileWriter('user');
-
-     
+        $accounts=$data->showAll();
+        usort($accounts, function ($a, $b){
+            return strcmp($a['regsurname'],$b['regsurname']);
+          
+          });
       
-        return App::view('accounts/index', ['accounts' => $data->showAll()]);
+        return App::view('accounts/index', ['accounts' =>  $accounts]);
     }
 
 
@@ -25,8 +28,8 @@ class AccountsController
 
 
     public function store(array $request){
-        $accounts = new FileWriter('user');
-        
+        $data = new FileWriter('user');
+        $accounts = $data->showAll();
     
         foreach ($accounts as $account) {
             if ($account['regid'] == $request['regid']) {
