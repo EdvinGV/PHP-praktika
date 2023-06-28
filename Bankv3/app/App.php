@@ -54,34 +54,35 @@ class App
         if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 1 && $url[0] == 'register') {
             return (new AccountsController)->create();
         }
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && count($url) == 1 && $url[0] == 'register') {
+            return (new AccountsController)->store($_POST);
+        }
+        //Editplus
+        if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 2 && $url[0] == 'editplus') {
+            return (new AccountsController)->edit($url[1]);
+        }
+        //UpdatePlus
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && count($url) == 2 && $url[0] == 'updateplus') {
+            return (new AccountsController)->updateplus($url[1], $_POST);
+        }
+        //Editminus
+        if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 2 && $url[0] == 'editminus') {
+            return (new AccountsController)->editminus($url[1]);
+        }
+        //Updateminus 
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && count($url) == 2 && $url[0] == 'updateminus') {
+            return (new AccountsController)->updateminus($url[1], $_POST);
+        }
+//Delete 
+        if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 2 && $url[0] == 'delete') {
+            return (new AccountsController)->delete($url[1]);
+        }
+        //Destroy
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && count($url) == 2 && $url[0] == 'destroy') {
+            return (new AccountsController)->destroy($url[1]);
+        }
+    
 
-
-
-        // Auth middleware END
-
-        // Racoon
-        // if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 1 && $url[0] == 'racoon') {
-        //    return (new RacoonController)->index();
-        // }
-        // if($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 2 && $url[0] == 'racoon' && $url[1] == 'create') {
-        //     return (new RacoonController)->create();
-        // }
-        // if($_SERVER['REQUEST_METHOD'] == 'POST' && count($url) == 2 && $url[0] == 'racoon' && $url[1] == 'store') {
-        //     return (new RacoonController)->store($_POST);
-        // }
-        // if($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 3 && $url[0] == 'racoon' && $url[1] == 'edit') {
-        //     return (new RacoonController)->edit($url[2]);
-        // }
-        // if($_SERVER['REQUEST_METHOD'] == 'POST' && count($url) == 3 && $url[0] == 'racoon' && $url[1] == 'update') {
-        //     return (new RacoonController)->update($url[2], $_POST);
-        // }
-        // if($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 3 && $url[0] == 'racoon' && $url[1] == 'delete') {
-        //     return (new RacoonController)->delete($url[2]);
-        // }
-        // if($_SERVER['REQUEST_METHOD'] == 'POST' && count($url) == 3 && $url[0] == 'racoon' && $url[1] == 'destroy') {
-        //     return (new RacoonController)->destroy($url[2]);
-        // }
-        // Racoon END
         {
             return self::view('404', [
                 'pageTitle' => 'Page Not Found 404',
@@ -101,6 +102,7 @@ class App
 
         require __DIR__ . '/../views/' . $path . '.php';
         require __DIR__ . '/../views/top.php';
+        require __DIR__ . '/../views/messages.php';
         return ob_get_clean();
     }
 }

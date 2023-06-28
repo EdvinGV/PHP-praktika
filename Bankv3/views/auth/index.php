@@ -21,16 +21,10 @@
 
 
 
-          <label class="info">Name </label> <input class="input" type="text" name="name">
+          <label class="info">Name </label> <input class="input" type="text" name="logname">
 
-          <label class="info">Password </label> <input class="input" type="password" name="psw">
+          <label class="info">Password </label> <input class="input" type="password" name="logpassword">
           
-          <?php if ($error) : ?>
-      <h2 style="color: crimson;"><?= $error ?></h2>
-    <?php endif ?>
-          <?php if (  $logout) : ?>
-      <h2 style="color: green;"><?= $logout ?></h2>
-    <?php endif ?>
 
           <button class="btn" type="submit"> Login </button>
  

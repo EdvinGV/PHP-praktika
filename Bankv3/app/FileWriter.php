@@ -3,7 +3,7 @@
 namespace Bank;
 
 use App\DB\DataBase;
-use Ramsey\Uuid\Uuid;
+use Bank\IbanId;
 
 class FileWriter implements DataBase
 {
@@ -29,7 +29,11 @@ class FileWriter implements DataBase
     
     public function create(array $userData) : void
     {
-     $id = Uuid::uuid4()->toString();
+        $serial= rand(100000000, 999999999);
+        $id = IbanId::generateLithuanianIBAN(); 
+        $regbalance=0;
+        $userData['serial'] = $serial;
+        $userData['regbalance'] = $regbalance;
         $userData['id'] = $id;
         $this->data[] = $userData;
     }
@@ -37,8 +41,8 @@ class FileWriter implements DataBase
     public function update(int $userId, array $userData) : void
     {
         foreach ($this->data as $key => $user) {
-            if ($user['id'] == $userId) {
-                $userData['id'] = $userId; // for safety
+            if ($user['serial'] == $userId) {
+                $userData['serial'] = $userId; // for safety
                 $this->data[$key] = $userData;
             }
         }
@@ -47,16 +51,16 @@ class FileWriter implements DataBase
     public function delete(int $userId) : void
     {
         foreach ($this->data as $key => $user) {
-            if ($user['id'] == $userId) {
+            if ($user['serial'] == $userId) {
                 unset($this->data[$key]);
             }
         }
     }
 
-    public function show(int $userId) : array
+    public function show (int $userId) : array
     {
         foreach ($this->data as $key => $user) {
-            if ($user['id'] == $userId) {
+            if ($user['serial'] == $userId) {
                 return $this->data[$key];
             }
         }

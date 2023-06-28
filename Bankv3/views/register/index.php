@@ -125,7 +125,7 @@
 // } else {
 //   $msg = '';
 // }
-
+use Bank\IbanId;
 ?>
 
 
@@ -136,7 +136,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VELNIO KODAI</title>
+  <title>Chesse Registration</title>
   <link rel="stylesheet" href="./bank.css">
 </head>
 
@@ -148,12 +148,12 @@
     <div class="left-block ">
       <div class="title">New Account Details</div>
       <div class="inputs">
-        <form action="./registration.php" method="post">
+        <form action="/register" method="post">
           <label class="info" for="">Name </label> <input class="input" type="text" placeholder=" Antanas" name='regname'>
           <label class="info" for="">Surname </label> <input class="input" type="text" placeholder=" Bimberbovas" name='regsurname'>
           <label class="info" for="">ID Number </label> <input class="input" type="text" placeholder=" 49904120437 (An Example)" name='regid'>
           <button class="btn" type="submit"> Confirm Details </button>
-          <h2> <?= $msg ?></h2>
+         
         </form>
       </div>
   </main>

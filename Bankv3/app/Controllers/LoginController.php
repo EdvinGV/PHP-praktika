@@ -3,6 +3,7 @@ namespace Bank\Controllers;
 
 use Bank\App;
 use Bank\FileWriter;
+use Bank\Messages;
 
 class LoginController
 {
@@ -16,22 +17,26 @@ class LoginController
 
     public function login(array $data)
     {
-       
-        $password = $data['psw'] ?? '';
-        $name = $data['name']?? '';
+       print_r($data);
+        $logpassword = $data['logpassword'] ?? '';
+        $logname = $data['logname']?? '';
 
-        $users = (new FileWriter('users'))->showAll();
+        $users = (new FileWriter('admins'))->showAll();
 
         foreach ($users as $user) {
-            if ($user['name'] == $name && $user['password'] == ($password)) {
+            if ($user['logname'] == $logname && $user['logpassword'] == ($logpassword)) {
                 
-                $_SESSION['name'] = $user['name'];
+                $_SESSION['name'] = $user['logname'];
                 // message( 'You are logged in');
                 header('Location: /');
                 die;
             }
+            
+            
+           
         }
-        // message('Wrong email or password');
+       
+        Messages::addMessage('danger', 'Wrong email or password');
         header('Location: /login');
         die;
     }
@@ -39,7 +44,7 @@ class LoginController
     public function logout()
     {
         unset($_SESSION['name']);
-        unset($_SESSION['password']);
+        Messages::addMessage('success', 'Logged out');
         header('Location: /');
         exit;
     }

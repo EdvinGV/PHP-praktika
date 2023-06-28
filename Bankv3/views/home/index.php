@@ -24,7 +24,7 @@ require __DIR__ . '/../../vendor/autoload.php';
 
 <a href="/accounts"><div class="item option">Bank Accounts</div> </a>
 <a href="/register"><div class="item option"> Add New Member</div></a>
-<form action="" method="post">
+<form action="/logout" method="post">
 <button type="submit"><div class="item itemas option">Log Out</div></button> 
 </form>
 </div>
